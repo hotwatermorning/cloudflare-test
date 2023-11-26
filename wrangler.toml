@@ -1,5 +1,5 @@
 name = "my-test"
-account_id = "c1225def766dac25afe2b8859f7a4623"
+account_id = "afc553ae58b0e241b2bf7a276325dfcd"
 compatibility_flags = []
 workers_dev = true
 compatibility_date = "2023-01-28"
@@ -11,12 +11,12 @@ build.command = "npm run build"
 
 [[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "my-app-todo"
-database_id = "47aa688a-80e7-40ba-a5de-618173b42256"
+database_name = "my-app-db"
+database_id = "752f8152-8472-4f39-a35e-f8888e86cf02"
 migrations_dir = "db/migrations"
 
 [[d1_databases]]
 binding = "DB_preview" # i.e. available in your Worker on env.DB
-database_name = "my-app-todo_preview"
-database_id = "5e6a6503-bdf0-45ff-9cae-11d6328eb393"
+database_name = "my-app-db_preview"
+database_id = "ba753ed7-601e-4467-bf53-24ef0c511f0c"
 migrations_dir = "db/migrations"

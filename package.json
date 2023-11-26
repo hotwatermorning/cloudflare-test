@@ -8,8 +8,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"db:migrate:create": "drizzle-kit generate:sqlite --out db/migrations --schema db/src/schema.ts",
-		"db:migrate:apply:local": "wrangler d1 migrations apply my-app-todo_preview --local",
-		"db:migrate:apply:public": "wrangler d1 migrations apply my-app-todo_preview"
+		"db:migrate:apply:local": "wrangler d1 migrations apply my-app-db_preview --local",
+		"db:migrate:apply:prd": "wrangler d1 migrations apply my-app-db_preview"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
