@@ -1,6 +1,6 @@
 # CloudFlare + Svelte Test
 
-CloudFlare Workers に SvelteKit のプロジェクトをデプロイするテスト。
+[CloudFlare](https://www.cloudflare.com/) Workers に [SvelteKit](https://kit.svelte.dev/) のプロジェクトをデプロイするテスト。
 
 DB に CloudFlare D1 を使用し、マイグレーションと ORM には [Drizzle ORM](https://orm.drizzle.team/) を使用している。
 
