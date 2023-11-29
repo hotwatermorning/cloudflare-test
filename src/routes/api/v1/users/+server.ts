@@ -5,7 +5,7 @@ import { error, type RequestEvent, type RequestHandler } from '@sveltejs/kit';
 export const GET: RequestHandler = async ({ request, url, platform }: RequestEvent) => {
   console.log(`${request.method} ${url.pathname}`);
 
-  const DB = platform?.env?.DB_preview;
+  const DB = platform?.env?.DB;
   if( DB == null ) {
     throw error(503, "Invalid DB");
   }

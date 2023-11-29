@@ -6,7 +6,7 @@ export const POST: RequestHandler = async ({ request, url, platform }: RequestEv
   console.log(`${request.method} ${url.pathname}`);
 
   const j: any = await request.json();
-  const DB = platform?.env?.DB_preview;
+  const DB = platform?.env?.DB;
   if( DB == null ) {
     throw error(503, "Invalid DB");
   }

@@ -10,7 +10,6 @@ declare global {
 		interface Platform {
 			env: {
 					DB: D1Database;
-					DB_preview: D1Database;
 			};
 	}
 	}

@@ -1,0 +1,17 @@
+account_id = "${CLOUDFLARE_ACCOUNT_ID}"
+name = "my-app"
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2023-01-28"
+minify = true
+
+main = "./.cloudflare/worker.js"
+site.bucket = "./.cloudflare/public"
+
+build.command = "npm run build"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_id = "${CLOUDFLARE_DB_ID}"
+database_name = "${CLOUDFLARE_DB_NAME}"
+migrations_dir = "db/migrations"
