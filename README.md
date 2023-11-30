@@ -1,11 +1,12 @@
 # Cloudflare + Svelte Test
 
-[Cloudflare](https://www.cloudflare.com/) Workers に [SvelteKit](https://kit.svelte.dev/) のプロジェクトをデプロイするテスト。
+[Cloudflare](https://www.cloudflare.com/) Pages に [SvelteKit](https://kit.svelte.dev/) のプロジェクトをデプロイするテスト。
 
 DB に Cloudflare D1 を使用し、マイグレーションと ORM には [Drizzle ORM](https://orm.drizzle.team/) を使用している。
 
 ## Prerequisites
 
+* jq
 * yarn
 * Terraform (1.6 or later)
 
@@ -28,8 +29,4 @@ export CLOUDFLARE_API_TOKEN="<生成した API トークン>"
 ./deploy.sh local
 ```
 
-ローカルでサンプルアプリケーションをプロダクション用にデプロイする場合は以下のようにすること。
-
-```sh
-./deploy.sh prd
-```
+プレビュー用、プロダクション用にそれぞれデプロイする場合は、引数に `local` ではなく `preview` や `prd` を指定する。
