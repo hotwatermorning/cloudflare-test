@@ -15,13 +15,27 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-DEPLOY_MODE=$1
+if ! command -v terraform; then
+  echo "terraform is not found." 1>&2
+  exit 1
+fi
 
-export TF_VAR_cloudflare_account_id=${CLOUDFLARE_ACCOUNT_ID}
-export TF_VAR_cloudflare_api_token=${CLOUDFLARE_API_TOKEN}
+if ! command -v jq; then
+  echo "jq is not found." 1>&2
+  exit 1
+fi
+
+if ! command -v yarn; then
+  echo "yarn is not found." 1>&2
+  exit 1
+fi
+
+DEPLOY_MODE=$1
 
 cd "${SCRIPT_DIR}/terraform"
 
+export TF_VAR_cloudflare_account_id=${CLOUDFLARE_ACCOUNT_ID}
+export TF_VAR_cloudflare_api_token=${CLOUDFLARE_API_TOKEN}
 terraform init
 terraform apply -auto-approve
 
@@ -36,6 +50,7 @@ cd ..
 
 envsubst < wrangler.toml.in > wrangler.toml
 
+yarn
 yarn build
 
 if [ "${DEPLOY_MODE}" = "prd" ]; then
@@ -44,7 +59,6 @@ if [ "${DEPLOY_MODE}" = "prd" ]; then
   yarn wrangler pages deploy .svelte-kit/cloudflare --project-name my-pages-app --branch main
 elif [ "${DEPLOY_MODE}" = "preview" ]; then
   echo "Deploy preview"
-  # yarn wrangler d1 migrations apply ${CLOUDFLARE_DB_PREVIEW_NAME}
   echo "y" | yarn wrangler d1 migrations apply ${CLOUDFLARE_DB_PREVIEW_NAME}
   yarn wrangler pages deploy .svelte-kit/cloudflare --project-name my-pages-app --branch preview
 else
