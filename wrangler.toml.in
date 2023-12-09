@@ -1,5 +1,6 @@
 account_id = "${CLOUDFLARE_ACCOUNT_ID}"
-compatibility_date = "2023-11-30"
+compatibility_date = "2023-12-09"
+send_metrics = false
 
 [[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
